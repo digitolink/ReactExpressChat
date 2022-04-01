@@ -69,7 +69,7 @@ async function postMessage(url,token, data){
 }
 
 //caso de uso CREAR usuario (login post)
-/*let url=host + "/login/";
+let url=host + "/login/";
 const data = {
 	"userName": "ms3",
 	"password": "ms3"
@@ -81,7 +81,7 @@ postLogin(url, JSON.stringify(data));
 let url2=host + "/messages/";
 seeMessages(url2,authToken("1648808814436", "ms4"));
 
-*/
+
 
 //caso de uso CREAR mensaje (message post)
 let url3=host + "/message/";
