@@ -56,7 +56,7 @@ async function seeMessages(url, token){
 
 }
 async function postMessage(url,token, data){
-    const response = fetch(
+    const response = await fetch(
         url,
         {method:"POST",
          body: data,
@@ -66,8 +66,11 @@ async function postMessage(url,token, data){
          }
         }
     );
-}
+    const responseData=await response.json();
+    return responseData;
 
+}
+/*
 //caso de uso CREAR usuario (login post)
 let url=host + "/login/";
 const data = {
@@ -81,7 +84,7 @@ postLogin(url, JSON.stringify(data));
 let url2=host + "/messages/";
 seeMessages(url2,authToken("1648808814436", "ms4"));
 
-
+*/
 
 //caso de uso CREAR mensaje (message post)
 let url3=host + "/message/";
