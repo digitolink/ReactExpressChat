@@ -86,6 +86,6 @@ seeMessages(url2,authToken("1648808814436", "ms4"));
 //caso de uso CREAR mensaje (message post)
 let url3=host + "/message/";
 const token=authToken("1648809937553", "ms4");
-const data=JSON.stringify({content:"contenido"});
+const data2=JSON.stringify({content:"contenido2"});
 
-postMessage(url3,token, data)
+postMessage(url3,token, data2)
