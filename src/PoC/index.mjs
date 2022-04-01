@@ -1,4 +1,4 @@
-const host = "https://web-develop-react-express-chat.herokuapp.com"
+const host = "https://web-develop-react-express-chat.herokuapp.com";
 const htmlGetUsers = document.querySelector("#getUsers");
 const htmlUpdateButton = document.querySelector("#updateButton");
 
@@ -17,4 +17,75 @@ function updateButtonClickHandler() {
     getUsers();
 }
 
+async function postLogin(url, data){
+    const response = await fetch(
+        url,
+        {method:'POST',
+        body: data,
+        headers: {
+            "Content-Type":
+            "application/json"
+        }
+    }
+    );
+    const responseData = await response.json();
+    console.log(responseData);
+    return responseData;
+
+}
+
 htmlUpdateButton.addEventListener("click", updateButtonClickHandler)
+
+function authToken(identificador, password){
+    const token=identificador + ":" + password;
+    const base64token=btoa(token);
+    return "Basic "+base64token;
+}
+
+async function seeMessages(url, token){
+    const response=await fetch(
+        url,
+        {headers:{
+            Authorization: token
+            }
+        }
+    );
+    const data=await response.json();
+    console.log(data);
+    return data;
+
+}
+async function postMessage(url,token, data){
+    const response = fetch(
+        url,
+        {method:"POST",
+         body: data,
+         headers:{
+             "Content-Type":"application/json",
+             Authorization: token
+         }
+        }
+    );
+}
+
+//caso de uso CREAR usuario (login post)
+/*let url=host + "/login/";
+const data = {
+	"userName": "ms3",
+	"password": "ms3"
+};
+postLogin(url, JSON.stringify(data));
+
+
+//caso de uso ver mensajes (message get)
+let url2=host + "/messages/";
+seeMessages(url2,authToken("1648808814436", "ms4"));
+
+*/
+
+//caso de uso CREAR mensaje (message post)
+let url3=host + "/message/";
+const token=authToken("1648809937553", "ms4");
+const data=JSON.stringify({content:"contenido"});
+
+postMessage(url3,token, data)
