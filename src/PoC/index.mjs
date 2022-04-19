@@ -70,7 +70,7 @@ async function postMessage(url,token, data){
     return responseData;
 
 }
-/*
+
 //caso de uso CREAR usuario (login post)
 let url=host + "/login/";
 const data = {
@@ -80,15 +80,17 @@ const data = {
 postLogin(url, JSON.stringify(data));
 
 
+/*
 //caso de uso ver mensajes (message get)
 let url2=host + "/messages/";
-seeMessages(url2,authToken("1648808814436", "ms4"));
+seeMessages(url2,authToken("1649055812003", "ms4"));
 
-*/
+
 
 //caso de uso CREAR mensaje (message post)
 let url3=host + "/message/";
-const token=authToken("1648809937553", "ms4");
+const token=authToken("1649055812003", "ms4");
 const data2=JSON.stringify({content:"contenido2"});
 
 postMessage(url3,token, data2)
+*/
